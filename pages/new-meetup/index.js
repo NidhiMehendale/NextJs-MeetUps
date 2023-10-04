@@ -1,4 +1,5 @@
 import NewMeetupForm from "../../components/meetups/NewMeetUpForm";
+import Head from "next/head";
 
 function NewMeetupPage() {
   async function addMeetupHandler(enteredMeetupData) {
@@ -16,7 +17,17 @@ function NewMeetupPage() {
     console.log(data);
   }
 
-  return <NewMeetupForm onAddMeetup={addMeetupHandler} />
+  return (
+    <Fragment>
+    <Head>
+      <title>Add a New Meetup</title>
+      <meta name='description'
+      content='Add your own meetups'
+      />
+    </Head>
+    <NewMeetupForm onAddMeetup={addMeetupHandler} />
+  </Fragment>
+  ) 
 }
 
 export default NewMeetupPage;
